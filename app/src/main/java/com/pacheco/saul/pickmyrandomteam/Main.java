@@ -28,7 +28,7 @@ public class Main extends AppCompatActivity {
         getBtPickMyTeam().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                List<String> pokemon = bdUtils.getPokemon(6);
+                List<String> pokemon = bdUtils.getPokemon();
                 getLvPokemon().setAdapter(new PokemonAdapter(getBaseContext(), pokemon));
             }
         });

@@ -6,5 +6,6 @@ package com.pacheco.saul.pickmyrandomteam.constant;
 
 public class CommonConstant {
 
-    public static final Integer IMG_COLUMNAS = 31;
+    public static final Integer IMG_FILAS_COLUMNAS = 31;
+    public static final Integer CANTIDAD_ACTUAL = 649;
 }

@@ -76,7 +76,7 @@ public class PokemonAdapter extends BaseAdapter {
 
     private Integer fila(Integer numPoke) {
         numPoke--;
-        Long aux = numPoke.longValue() / CommonConstant.IMG_COLUMNAS;
+        Long aux = numPoke.longValue() / CommonConstant.IMG_FILAS_COLUMNAS;
         NumberFormat numberFormat = NumberFormat.getInstance();
         numberFormat.setMaximumFractionDigits(0);
         numberFormat.setRoundingMode(RoundingMode.DOWN);
@@ -84,11 +84,11 @@ public class PokemonAdapter extends BaseAdapter {
     }
 
     private int getWidthImg() {
-        return (getPokemonImg().getWidth() / (CommonConstant.IMG_COLUMNAS));
+        return (getPokemonImg().getWidth() / (CommonConstant.IMG_FILAS_COLUMNAS));
     }
 
     private int getHeightImg() {
-        return (getPokemonImg().getHeight() / (CommonConstant.IMG_COLUMNAS));
+        return (getPokemonImg().getHeight() / (CommonConstant.IMG_FILAS_COLUMNAS));
     }
 
     private String getStringNombre(String s) {
