@@ -54,8 +54,9 @@ public class BDUtils {
         List<String> aux = new ArrayList<>();
         String consulta = "SELECT ".concat(PokemonTableConstant.POKEMON_NOMBRE);
         consulta = consulta.concat(", ").concat(PokemonTableConstant.POKEMON_NUMERO);
-        consulta = consulta.concat(" FROM ").concat(PokemonTableConstant.POKEMON).concat(" LIMIT ");
-        consulta = consulta.concat(cantidad.toString());
+        consulta = consulta.concat(" FROM ").concat(PokemonTableConstant.POKEMON);
+        //consulta = consulta.concat(" WHERE ").concat(PokemonTableConstant.POKEMON_NUMERO).concat(" IN (649,500,151,10,31,32)");
+        consulta = consulta.concat(" LIMIT ").concat(cantidad.toString());
         Cursor c = getCursor(consulta);
         while (c.moveToNext()) {
             String nombre = c.getString(c.getColumnIndex(PokemonTableConstant.POKEMON_NOMBRE));

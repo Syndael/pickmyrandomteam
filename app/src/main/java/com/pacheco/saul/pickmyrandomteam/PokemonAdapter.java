@@ -61,42 +61,34 @@ public class PokemonAdapter extends BaseAdapter {
         holder.iv = (ImageView) rowView.findViewById(R.id.ivPokemon);
         auxStr = listaPokemon.get(position).split(":");
         holder.tv.setText(getStringNombre(auxStr[0]));
-        Integer x, y, x1, y1;
-        x = getX(Integer.parseInt(auxStr[1]));
-        y = getY(Integer.parseInt(auxStr[1]));
-        x1 = (x + getWidth()) / Integer.parseInt(auxStr[1]);
-        y1 = y + getHeight();
+        Integer x, y, x1, y1, numPoke, fila;
+        numPoke = Integer.parseInt(auxStr[1]);
+        fila = fila(numPoke);
+        x = ((getWidthImg() * numPoke) - getWidthImg());
+        x = x - getPokemonImg().getWidth() * fila;
+        y = ((fila + 1) * getHeightImg()) - getHeightImg();
+        x1 = getWidthImg();
+        y1 = getHeightImg();
         Bitmap img = Bitmap.createBitmap(getPokemonImg(), x, y, x1, y1);
         holder.iv.setImageBitmap(img);
         return rowView;
     }
 
-    private Integer getX(Integer i) {
-        i--;
-        int x = (i * getWidth());
-        if (x <= 0)
-            x = x + 1;
-        return x;
-    }
-
-    private int getWidth() {
-        return (getPokemonImg().getWidth() / CommonConstant.IMG_COLUMNAS);
-    }
-
-    private Integer getY(Integer i) {
-        Long aux = i.longValue() / CommonConstant.IMG_FILAS;
+    private Integer fila(Integer numPoke) {
+        numPoke--;
+        Long aux = numPoke.longValue() / CommonConstant.IMG_COLUMNAS;
         NumberFormat numberFormat = NumberFormat.getInstance();
         numberFormat.setMaximumFractionDigits(0);
         numberFormat.setRoundingMode(RoundingMode.DOWN);
-        i = Integer.parseInt(numberFormat.format(aux)) + 1;
-        int y = i * getHeight() - getHeight();
-        if (y <= 0)
-            y = y + 1;
-        return y;
+        return Integer.parseInt(numberFormat.format(aux));
     }
 
-    private int getHeight() {
-        return (getPokemonImg().getHeight() / CommonConstant.IMG_FILAS);
+    private int getWidthImg() {
+        return (getPokemonImg().getWidth() / (CommonConstant.IMG_COLUMNAS));
+    }
+
+    private int getHeightImg() {
+        return (getPokemonImg().getHeight() / (CommonConstant.IMG_COLUMNAS));
     }
 
     private String getStringNombre(String s) {

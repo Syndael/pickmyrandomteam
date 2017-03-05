@@ -7,13 +7,13 @@
     android:gravity="left|center">
 
     <ImageView
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="64dp"
         android:id="@+id/ivPokemon"
         android:src="@drawable/missgno"
         android:layout_gravity="left"
         android:maxHeight="@android:dimen/app_icon_size"
-        android:scaleType="centerInside" />
+        android:scaleType="centerInside"
+        android:layout_height="64dp" />
 
     <TextView
         android:id="@+id/tvPokemon"
